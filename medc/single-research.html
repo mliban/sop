@@ -251,10 +251,13 @@
 <div class="col-md-12">
 <h2>The Drug Discovery Process</h2>
 <p>Drug discovery is at the core of medicinal chemistry. Many medicinal chemists will tell you that their lifelong dream is to see a molecule they invented put into humans as a therapeutic treatment. There are certainly many diseases and conditions for which the currently available treatment options are too expensive, mostly ineffective or not even available. Therefore, there is always a need for scientists who want to apply their talent and hard work to discovering new drugs. It is not easy: by many estimates the cost to bring a molecule from the idea stage into an FDA approved drug sold in drug stores is about $1.2 billion and takes 10-12 years. Most of this money is spent at the tail end of the drug discovery process when pharmaceutical companies are performing large-scale clinical trials on the most promising candidate molecules. The path to get to that stage has many interesting and challenging roles for medicinal chemists – starting with an idea that a small chemical might modulate the activity of a biomacromolecule in such a way as to cause a pharmacological response. That idea is the basis for what is called “target validation”, i.e., proving that a specific biological molecule is worth pursuing as the object of drug discovery. The identification of active compounds proceeds from “hits” to “leads” to “candidates” as more and more effort is put into improving or optimizing their efficacy and physiochemical properties. The topics listed below describe some of the disease-specific projects and state-of-the-art techniques that VCU medicinal chemists are working on in their world-class research programs.</p>
+
+<div id="accordion">
+
 <article class="research-wrap">
 <h4 id="Allosteric-Interactive-Drugs" class="research-question">Allosteric Interactive Drugs</h4>
 <div class="research-answer">
-<p>Allosteric proteins regulate some of the most important biochemical pathways in organisms. Identification of allosteric binding site modulators have gained increased attention for their potential to be developed as selective therapeutic agents with fewer side effects. VCU medicinal chemists have a very long history of exploring the structure, function and biochemistry of hemoglobin, which is the most famous allosteric protein.&nbsp;<a href="http://app.pharmacy.vcu.edu/msafo" target="_blank">Martin Safo’s</a> group has continued this interest in understanding the structures, functions and regulatory mechanisms of the allosteric binding sites of hemoglobin, but has also studied pyruvate kinase, and 2,3-DPG mutase with respect to their potential as drug targets for a range of diseases. Using structure-based drug design, several hemoglobin allosteric effectors with ideal oxygen modulating properties potentially useful for the treatment of hypoxic diseases and sickle cell anemia have been discovered including 5-hydroxymethylfurfural (5-HMF), a safe, potent, and highly effective anti-sickling agent. 5-HMF was one of the first molecules to enter the NIH&nbsp;<a href="https://ncats.nih.gov/trnd" target="_blank">Therapeutics for Rare and Neglected Diseases</a> program. The group of&nbsp;<a href="http://app.pharmacy.vcu.edu/urdesai" target="_blank">Umesh Desai</a> is developing allosteric regulators of coagulation proteases such as thrombin, factor Xa, factor IXa, and factor XIa. Here, allosterism arises from cooperativity between the heparin-binding site and the active sites of these proteases. Small molecule glycosaminoglycan (GAG) mimetics that induce either full or partial inhibition of protease activity resulting in anticoagulation effects have been discovered. In vivo this translates to antithrombotic activity.</p>
+<p id="one">Allosteric proteins regulate some of the most important biochemical pathways in organisms. Identification of allosteric binding site modulators have gained increased attention for their potential to be developed as selective therapeutic agents with fewer side effects. VCU medicinal chemists have a very long history of exploring the structure, function and biochemistry of hemoglobin, which is the most famous allosteric protein.&nbsp;<a href="http://app.pharmacy.vcu.edu/msafo" target="_blank">Martin Safo’s</a> group has continued this interest in understanding the structures, functions and regulatory mechanisms of the allosteric binding sites of hemoglobin, but has also studied pyruvate kinase, and 2,3-DPG mutase with respect to their potential as drug targets for a range of diseases. Using structure-based drug design, several hemoglobin allosteric effectors with ideal oxygen modulating properties potentially useful for the treatment of hypoxic diseases and sickle cell anemia have been discovered including 5-hydroxymethylfurfural (5-HMF), a safe, potent, and highly effective anti-sickling agent. 5-HMF was one of the first molecules to enter the NIH&nbsp;<a href="https://ncats.nih.gov/trnd" target="_blank">Therapeutics for Rare and Neglected Diseases</a> program. The group of&nbsp;<a href="http://app.pharmacy.vcu.edu/urdesai" target="_blank">Umesh Desai</a> is developing allosteric regulators of coagulation proteases such as thrombin, factor Xa, factor IXa, and factor XIa. Here, allosterism arises from cooperativity between the heparin-binding site and the active sites of these proteases. Small molecule glycosaminoglycan (GAG) mimetics that induce either full or partial inhibition of protease activity resulting in anticoagulation effects have been discovered. In vivo this translates to antithrombotic activity.</p>
 <div class="research-image"><img src="https://pharmacy.vcu.edu/media/pharmacy/images/departments/medicinal-chemistry/research/AllostericInteractiveDrugs.jpg" alt="Allosteric Interactive Drugs" style="width:480px; height:auto;    " /></div>
 </div>
 </article>
@@ -363,6 +366,7 @@
 <div class="research-image"><img src="https://pharmacy.vcu.edu/media/pharmacy/images/departments/medicinal-chemistry/research/X-rayCrystallography-1.png" alt="X-ray Crystallography " style="width:592px; height:auto;    " /></div>
 </div>
 </article>
+</div><!-- /#accordion -->
 </div>
 </div>
 </div>
@@ -547,6 +551,25 @@
             e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
         })();
         </script>
+        <script>
+          var $accordion = $("#accordion");
+            $accordion.accordion({
+            collapsible: true,
+            active: false
+          });
 
+          $(".opener").on("click", function() {
+            var $this = $(this),
+              toOpen = $this.data("panel");
+            $accordion.accordion("option", "active", toOpen);
+            var timer = $accordion.accordion("option", "animate");
+            setTimeout(function() {
+              $("html,body").animate({
+                scrollTop: $($("#accordion>div").get(toOpen)).offset().top
+              }, 300);
+            }, timer);
+            return false;
+          });
+        </script>
   </body>
 </html>
