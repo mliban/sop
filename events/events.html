@@ -42,28 +42,6 @@
           .fa-flask {
     				color: white!important;
           }
-
-          #cal_xml_feed{
-            background:#efefef;
-            width:100%;
-          }
-          .cal_head{
-
-          }
-          .cal_info{
-            height:auto;
-            padding-bottom:48px;
-          }
-          .cal_time,
-          .cal_location{
-            position:absolute;
-          }
-          .cal_time{
-            bottom:24px;
-          }
-          .cal_location{
-            bottom:0;
-          }
       	</style>
     </head>
     <body>
@@ -374,22 +352,7 @@
             <div class="owl-carousel owl-theme pharm-events-carousel">
 
               <div class="pharm-events">
-                <div class="pharm-event">
-                  <div class="event-date">
-                    Nov<br>
-                    2
-                  </div>
-                  <div class="event-details-wrap">
-                    <div class="event-title"><a href="http://events.vcu.edu/details.asp?myVal=66555" target="_blank">
-                      Recent Progress in the Discovery and Development of Male Contraceptive Agents</a></div>
-                    <div class="event-details">
-                      <p>Oliver Hall-Physical Science Wing - Room 1024<br>3:30 pm - 4:45 pm</p>
-                    </div>
-                  </div>
-                  </div><!-- /pharm-event-->
-
-                  <script language="javascript" src="https://ts.vcu.edu/cgi-bin/cgiwrap/getcal4.pl?SearchDate=0&SearchCategory=ALL&Campus=&Buildings=&SearchAudience=0&School=Pharmacy&Dept=&ongoing=1&dlFlag=0&areaOfFocus=vcupharmacy&IncludeCanceled=1&topLimit=5&flag=0"></script>
-
+                <script language="javascript" src="https://ts.vcu.edu/cgi-bin/cgiwrap/getcal4.pl?SearchDate=0&SearchCategory=ALL&Campus=&Buildings=&SearchAudience=0&School=Pharmacy&Dept=&ongoing=1&dlFlag=0&areaOfFocus=vcupharmacy&IncludeCanceled=1&topLimit=5&flag=0"></script>
               </div><!-- end .pharm-events -->
 
             </div><!-- end .event-carousel -->
@@ -545,18 +508,6 @@
         <!-- twitter boostrap -->
         <script type="text/javascript" src="https://pharmacy.vcu.edu/media/pharmacy/lib/bootstrap.min.js"></script>
 
-        <script>
-        $('.cal_head').each(function(){
-          $(this).next('.cal_info').andSelf().wrapAll('<div class="pharm-event"/>');
-        });
-        $( ".cal_head" ).addClass( "event-date" );
-        $( ".cal_info" ).addClass( "event-details-wrap event-details" );
-        $( ".cal_title" ).addClass( "event-title" );
-
-          //$( "</div>" ).insertAfter( ".inner" );
-        </script>
-
-
         <!-- owl carousel -->
         <script type="text/javascript" src="https://pharmacy.vcu.edu/media/pharmacy/lib/owlcarousel/owl.carousel.min.js"></script>
 
@@ -570,9 +521,18 @@
         <script type="text/javascript" src="https://pharmacy.vcu.edu/media/pharmacy/js/global-2017-02-15-01.js"></script>
 
         <!-- Page scripts -->
+				<script>
+          //Home page event feed
+          $('.cal_head').each(function(){
+            $(this).next('.cal_info').andSelf().wrapAll('<div class="pharm-event hpXml"/>');
+          });
+          $( ".cal_head" ).addClass( "event-date" );
+          $( ".cal_info" ).addClass( "event-details-wrap event-details" );
+          $( ".cal_title" ).addClass( "event-title" );
+        </script>
+
         <script>
         $(document).ready(function(){
-
             $(".pharm-header-carousel").owlCarousel({
                 autoplay: true,
                 autoplayTimeout: 15000,
@@ -631,8 +591,8 @@
             });
 
             $(".pharm-events-carousel").owlCarousel({
-                items: 3,
-                loop: true,
+                items: 5,
+                loop: false,
                 nav: true,
                 navText: ["<span class='fa fa-chevron-left' aria-hidden='true'></span>","<span class='fa fa-chevron-right' aria-hidden='true'></span>"],
                 nestedItemSelector: "pharm-event",
@@ -642,7 +602,7 @@
                         items: 1
                     },
                     768:{
-                        items: 3
+                        items: 5
                     }
                 }
             });
