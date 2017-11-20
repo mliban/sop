@@ -42,6 +42,21 @@
           .fa-flask {
     				color: white!important;
           }
+          @media only screen and (min-width : 768px) {
+            .hpXml .cal_info{
+            }
+            .event-title a{
+              font-size:16px !important;
+              line-height:1em !important;
+            }
+            .hpXml .cal_time {
+              bottom:28px !important;
+            }
+            .hpXml .cal_location {
+              bottom:0 !important;
+              line-height: 1em
+            }
+          }
       	</style>
     </head>
     <body>
@@ -602,7 +617,7 @@
                         items: 1
                     },
                     768:{
-                        items: 5
+                        items: 3
                     }
                 }
             });
